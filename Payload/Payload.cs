@@ -264,8 +264,11 @@ public unsafe partial class Core
         public static readonly byte[] Signature =
             { 0xDE, 0xAD, 0xBE, 0xEF };
     }
+    
     private static nuint _originalFnAddress;
+    
 private static void* _myNewTable = null;
+ 
 [UnmanagedCallersOnly(EntryPoint = "MyAwesomeCallback", CallConvs = new[] { typeof(CallConvStdcall) })]
 public static unsafe IntPtr MyHijackedFunction(IntPtr windowHandle, uint message, IntPtr wParam, IntPtr lParam)
 {
